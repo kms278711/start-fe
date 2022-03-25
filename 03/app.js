@@ -98,30 +98,30 @@ console.log('03');
 
 // console.log(result); // true
 
-var todos = ['운동'];
-function create(todo) {
-    todos.push(todo);
-    console.log(todos);
-}
+// var todos = ['운동'];
+// function create(todo) {
+//     todos.push(todo);
+//     console.log(todos);
+// }
 
-function read(todos){
-    todos.forEach(function(todo){
-        console.log(todo);
-    });
-}
+// function read(todos){
+//     todos.forEach(function(todo){
+//         console.log(todo);
+//     });
+// }
 
-function update(updateTodo, updateTodoAfter){
-    var updateIndex = todos.findIndex(function(todo) {
-        return todo === updateTodo
-    });
-    todos[updateIndex] = updateTodoAfter;
-    console.log(todos);
-}
+// function update(updateTodo, updateTodoAfter){
+//     var updateIndex = todos.findIndex(function(todo) {
+//         return todo === updateTodo
+//     });
+//     todos[updateIndex] = updateTodoAfter;
+//     console.log(todos);
+// }
 
-function eliminate(deleteTodo){
-    var deleteIndex = todos.findIndex(function(todo){
-        return todo === deleteTodo;
-    });
-    todos.splice(deleteIndex, 1);
-    console.log(todos);
-}
+// function eliminate(deleteTodo){
+//     var deleteIndex = todos.findIndex(function(todo){
+//         return todo === deleteTodo;
+//     });
+//     todos.splice(deleteIndex, 1);
+//     console.log(todos);
+// }
