@@ -1,8 +1,8 @@
 #box {
-    top: 50px;
-    left: 50px;
-    width: 200px;
-    height: 200px;
-    background-color: grey;
+    width: 150px;
+    height: 100px;
+    background-color: #999;
+    left: 200px;
+    top: 200px;
     position: absolute;
-}
+  }

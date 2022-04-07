@@ -1,33 +1,20 @@
-var $box = document.getElementById('box');
+const $box = document.getElementById('box');
 
-function boxDrag(ele) {
-    var x1 = 0;
-    var x2 = 0;
-    var y1 = 0;
-    var y2 = 0;
+let offset = { x: 0, y: 0 };
+let isDown = false;
 
-    function boxDown(e) {
-        x1 = e.clientX;
-        y1 = e.clientY;
-        document.addEventListener('mousemove', boxMove);
-        document.addEventListener('mouseup', boxUp);
-    }
+$box.addEventListener('mousedown', (event) => {
+  isDown = true;
+  offset.x = $box.offsetLeft - event.clientX; // 박스의 현재 left 길이에서, 마우스의 x 좌표를 빼주기
+  offset.y = $box.offsetTop - event.clientY;
+});
 
-    function boxMove(e) {
-        x2 = x1 - e.clientX;
-        y2 = y1 - e.clientY;
-        x1 = e.clientX;
-        y1 = e.clientY;
-        ele.style.left = ele.offsetLeft - x2 + 'px'; //모르겠음.
-        ele.style.top = ele.offsetTop - y2 + 'px'; //모르겠음.
-    }
+$box.addEventListener('mouseup', (event) => {
+  isDown = false;
+});
 
-    function boxUp() {
-        document.removeEventListener('mouseup', boxUp);
-        document.removeEventListener('mousemove', boxMove);
-    }
-
-    ele.addEventListener('mousedown', boxDown);
-}
-
-boxDrag($box);
+document.body.addEventListener('mousemove', (event) => {
+  if (!isDown) return;
+  $box.style.left = event.clientX + offset.x;
+  $box.style.top = event.clientY + offset.y;
+});
