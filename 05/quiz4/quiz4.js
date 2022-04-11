@@ -9,12 +9,13 @@ $box.addEventListener('mousedown', (event) => {
   offset.y = $box.offsetTop - event.clientY;
 });
 
+document.addEventListener('mousemove', (event) => {
+  if (!isDown) return;
+  $box.style.left = event.clientX + offset.x + 'px';
+  $box.style.top = event.clientY + offset.y + 'px';
+});
+
 $box.addEventListener('mouseup', (event) => {
   isDown = false;
 });
 
-document.body.addEventListener('mousemove', (event) => {
-  if (!isDown) return;
-  $box.style.left = event.clientX + offset.x;
-  $box.style.top = event.clientY + offset.y;
-});
